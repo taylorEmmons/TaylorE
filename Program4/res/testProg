@@ -1,0 +1,45 @@
+#!/bin/sh
+#testProg for CS 125 P4 Spring 2010
+
+# testing compilation
+
+echo
+echo "Running this shell script should compile and run your program.  
+The output should match the sample output in the assignment."
+
+echo
+
+if (test -f TextStatistics.java)
+    then
+    javac TextStatistics.java
+fi
+
+if (test -f ProcessText.java)
+    then
+    javac ProcessText.java
+fi
+
+if (test -f ProcessText.class)
+    then
+    echo
+    echo Testing main menu
+    echo
+    java ProcessText  testfile.txt Gettysburg-Address.txt 
+    echo
+    echo "The correct values  for character, word and line counts"
+    echo "are given in the file testfile.txt."
+    echo
+    echo "The file testresults has the statistics for the files"
+    echo "testfile.txt and Gettysburg-Address.txt"
+else
+    echo
+    echo "class ProcessText not found - either your program didn't compile 
+    or it has the wrong name."
+fi
+echo
+
+if ! test -e README
+    then
+    echo Did you forget that you need a file called README
+fi
+
